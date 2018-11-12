@@ -12,10 +12,26 @@ const server = http.createServer((req, res) => {
     fs.readFile(`public/${fileName}`, (err, data) => {
         if (err) return res.end('<b>Error!</b>');
 
+        // HTML
         if (isHTML) res.setHeader('Content-Type', 'text/html');
+        if (isHTML) {
+            const date = new Date();
+            const time = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+            const style = 'time{position: absolute;bottom: 15px;right: 15px;}';
+
+            const html = String(data).replace(
+                '</body>',
+                `<time>${time}</time><style type="text/css">${style}</style></body>`
+            );
+            return res.end(html);
+        }
+
+        // JS
         if (isJS) res.setHeader('Content-Type', 'text/javascript');
 
+        // IMG
         if (isIMG) return res.end(data);
+
         res.end(String(data));
     });
 
