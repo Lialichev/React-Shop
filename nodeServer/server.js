@@ -4,21 +4,19 @@ const fs = require('fs');
 const server = http.createServer((req, res) => {
 
     const fileName = req.url.replace('/', '');
+
     const isHTML = req.url.includes('.html');
-
-    if (isHTML) {
-        fs.readFile(`public/${fileName}`, (err, data) => {
-            if (err) return res.end('<b>Error html</b>');
-
-            res.setHeader('Content-Type', 'text/html');
-            res.end(String(data));
-        });
-        return;
-    }
+    const isIMG = req.url.includes('.png') || req.url.includes('.jpg');
+    const isJS = req.url.includes('.js');
 
     fs.readFile(`public/${fileName}`, (err, data) => {
-        if (err) return res.end('<b>Error img</b>');
-        res.end(data);
+        if (err) return res.end('<b>Error </b>');
+
+        if (isHTML) res.setHeader('Content-Type', 'text/html');
+        if (isJS) res.setHeader('Content-Type', 'text/javascript');
+
+        if (isIMG) return res.end(data);
+        res.end(String(data));
     });
 
 });
