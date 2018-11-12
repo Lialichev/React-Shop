@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     const isJS = req.url.includes('.js');
 
     fs.readFile(`public/${fileName}`, (err, data) => {
-        if (err) return res.end('<b>Error </b>');
+        if (err) return res.end('<b>Error!</b>');
 
         if (isHTML) res.setHeader('Content-Type', 'text/html');
         if (isJS) res.setHeader('Content-Type', 'text/javascript');
