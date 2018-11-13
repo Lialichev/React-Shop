@@ -2,19 +2,22 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-
     const fileName = req.url.replace('/', '');
 
     const isHTML = req.url.includes('.html');
-    const isIMG = req.url.includes('.png') || req.url.includes('.jpg');
+    const isIMG = req.url.includes('.png') || req.url.includes('.jpg') || req.url.includes('.svg') || req.url.includes('.gif');
     const isJS = req.url.includes('.js');
 
     fs.readFile(`public/${fileName}`, (err, data) => {
-        if (err) return res.end('<b>Error!</b>');
+        if (err) {
+            res.setHeader('Content-Type', 'text/html');
+            return res.end('<b>Error!</b>');
+        }
 
         // HTML
-        if (isHTML) res.setHeader('Content-Type', 'text/html');
         if (isHTML) {
+            res.setHeader('Content-Type', 'text/html');
+            
             const date = new Date();
             const time = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
             const style = 'time{position: absolute;bottom: 15px;right: 15px;}';
