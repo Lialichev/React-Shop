@@ -161,7 +161,18 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var header = __webpack_require__(/*! ./components/header */ \"./components/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer */ \"./components/footer.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\ndocument.body.appendChild(header);\ndocument.body.appendChild(footer);\n\n//# sourceURL=webpack:///./app.js?");
+eval("var header = __webpack_require__(/*! ./components/header */ \"./components/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer */ \"./components/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/elementBuilder */ \"./components/elementBuilder.js\")('main', 'main', 'main');\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\ndocument.body.appendChild(header);\ndocument.body.append(main[0]);\ndocument.body.appendChild(footer);\n\n//# sourceURL=webpack:///./app.js?");
+
+/***/ }),
+
+/***/ "./components/elementBuilder.js":
+/*!**************************************!*\
+  !*** ./components/elementBuilder.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';\n  var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'box';\n  return $(\"<\".concat(tag, \" class=\\\"\").concat(className, \"\\\">\").concat(content, \"</\").concat(tag, \">\"));\n};\n\n//# sourceURL=webpack:///./components/elementBuilder.js?");
 
 /***/ }),
 
