@@ -1,9 +1,4 @@
-module.exports = () => {
-    const header = document.createElement('header');
+const $ = require('jquery');
+const header = require('../sctipts/elementBuilder');
 
-    header.className = 'header';
-
-    header.innerHTML = '<a href="/">Logo</a>';
-
-    return header;
-};
+module.exports = () => header('header', `<a href="/">Logo</a>`, 'header');

@@ -161,7 +161,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var header = __webpack_require__(/*! ./components/header */ \"./components/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer */ \"./components/footer.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\ndocument.body.appendChild(header);\ndocument.body.appendChild(footer);\n\n//# sourceURL=webpack:///./app.js?");
+eval("var header = __webpack_require__(/*! ./components/header */ \"./components/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer */ \"./components/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main */ \"./components/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -170,9 +170,9 @@ eval("var header = __webpack_require__(/*! ./components/header */ \"./components
   !*** ./components/footer.js ***!
   \******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = function () {\n  var footer = document.createElement('footer');\n  footer.className = 'footer';\n  footer.innerHTML = '<p>Easycode 2019 (c)</p>';\n  return footer;\n};\n\n//# sourceURL=webpack:///./components/footer.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer.js?");
 
 /***/ }),
 
@@ -181,9 +181,31 @@ eval("module.exports = function () {\n  var footer = document.createElement('foo
   !*** ./components/header.js ***!
   \******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = function () {\n  var header = document.createElement('header');\n  header.className = 'header';\n  header.innerHTML = '<a href=\"/\">Logo</a>';\n  return header;\n};\n\n//# sourceURL=webpack:///./components/header.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header.js?");
+
+/***/ }),
+
+/***/ "./components/main.js":
+/*!****************************!*\
+  !*** ./components/main.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar main = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return main('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n};\n\n//# sourceURL=webpack:///./components/main.js?");
+
+/***/ }),
+
+/***/ "./sctipts/elementBuilder.js":
+/*!***********************************!*\
+  !*** ./sctipts/elementBuilder.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';\n  var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'box';\n  return $(\"<\".concat(tag, \" class=\\\"\").concat(className, \"\\\">\").concat(content, \"</\").concat(tag, \">\"));\n};\n\n//# sourceURL=webpack:///./sctipts/elementBuilder.js?");
 
 /***/ })
 

@@ -1,9 +1,4 @@
-module.exports = () => {
-    const footer = document.createElement('footer');
+const $ = require('jquery');
+const footer = require('../sctipts/elementBuilder');
 
-    footer.className = 'footer';
-
-    footer.innerHTML = '<p>Easycode 2019 (c)</p>';
-
-    return footer;
-};
+module.exports = () => footer('footer', `<p>Easycode 2019 (c)</p>`, 'footer');

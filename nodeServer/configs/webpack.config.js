@@ -3,13 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const package = require('../package.json');
 
 module.exports = {
-    // entry: './app.js',
-    entry: {
-        main: './app.js'
-    },
+    entry: './app.js',
     context: path.resolve(__dirname, '../src'),
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../public')
     },
 
