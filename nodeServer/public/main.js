@@ -172,7 +172,7 @@ eval("var header = __webpack_require__(/*! ./components/header */ \"./components
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  return $(\"<footer class=\\\"footer\\\"><p>Easycode 2019 (c)</p></footer>\");\n};\n\n//# sourceURL=webpack:///./components/footer.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer.js?");
 
 /***/ }),
 
@@ -183,7 +183,7 @@ eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jq
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  return $(\"<header class=\\\"header\\\"><a href=\\\"/\\\">Logo</a></header>\");\n};\n\n//# sourceURL=webpack:///./components/header.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header.js?");
 
 /***/ }),
 
@@ -194,7 +194,18 @@ eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jq
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return $(\"<main class=\\\"main\\\">\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay, \"</main>\"));\n};\n\n//# sourceURL=webpack:///./components/main.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar main = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return main('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n};\n\n//# sourceURL=webpack:///./components/main.js?");
+
+/***/ }),
+
+/***/ "./sctipts/elementBuilder.js":
+/*!***********************************!*\
+  !*** ./sctipts/elementBuilder.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';\n  var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'box';\n  return $(\"<\".concat(tag, \" class=\\\"\").concat(className, \"\\\">\").concat(content, \"</\").concat(tag, \">\"));\n};\n\n//# sourceURL=webpack:///./sctipts/elementBuilder.js?");
 
 /***/ })
 
