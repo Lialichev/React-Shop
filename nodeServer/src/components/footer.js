@@ -1,8 +1,3 @@
-module.exports = () => {
-    const footer = document.createElement('footer');
+const $ = require('jquery');
 
-    footer.className = 'footer';
-    footer.innerHTML = '<p>Easycode 2019 (c)</p>';
-
-    return footer;
-};
+module.exports = () => $(`<footer class="footer"><p>Easycode 2019 (c)</p></footer>`);

@@ -1,8 +1,3 @@
-module.exports = () => {
-    const header = document.createElement('header');
+const $ = require('jquery');
 
-    header.className = 'header';
-    header.innerHTML = '<a href="/">Logo</a>';
-
-    return header;
-};
+module.exports = () => $(`<header class="header"><a href="/">Logo</a></header>`);
