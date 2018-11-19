@@ -4,7 +4,7 @@ const main = require('./components/main/main')();
 const $ = require('jquery');
 const body = $('body');
 
-require('./app.css');
+require('./scss/app.scss');
 
 body.append(header);
 body.append(main);

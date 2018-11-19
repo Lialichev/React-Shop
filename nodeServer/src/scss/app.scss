@@ -1,0 +1,11 @@
+@import "mixins";
+
+body {
+  background: #000;
+  @include round(20px);
+  @include triangleDir();
+
+  & * {
+    color: aqua;
+  }
+}

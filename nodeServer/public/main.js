@@ -154,17 +154,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./app.css":
-/*!*****************!*\
-  !*** ./app.css ***!
-  \*****************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./app.css?");
-
-/***/ }),
-
 /***/ "./app.js":
 /*!****************!*\
   !*** ./app.js ***!
@@ -172,18 +161,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./app.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var header = __webpack_require__(/*! ./components/header/header */ \"./components/header/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer/footer */ \"./components/footer/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main/main */ \"./components/main/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\n\n__webpack_require__(/*! ./app.css */ \"./app.css\");\n\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
-
-/***/ }),
-
-/***/ "./components/footer/footer.css":
-/*!**************************************!*\
-  !*** ./components/footer/footer.css ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/footer/footer.css?");
+eval("var header = __webpack_require__(/*! ./components/header/header */ \"./components/header/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer/footer */ \"./components/footer/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main/main */ \"./components/main/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\n\n__webpack_require__(/*! ./scss/app.scss */ \"./scss/app.scss\");\n\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -194,18 +172,18 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./comp
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./footer.css */ \"./components/footer/footer.css\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer/footer.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./footer.scss */ \"./components/footer/footer.scss\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer/footer.js?");
 
 /***/ }),
 
-/***/ "./components/header/header.css":
-/*!**************************************!*\
-  !*** ./components/header/header.css ***!
-  \**************************************/
+/***/ "./components/footer/footer.scss":
+/*!***************************************!*\
+  !*** ./components/footer/footer.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/header/header.css?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/footer/footer.scss?");
 
 /***/ }),
 
@@ -216,18 +194,18 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./comp
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./header.css */ \"./components/header/header.css\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header/header.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./header.scss */ \"./components/header/header.scss\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header/header.js?");
 
 /***/ }),
 
-/***/ "./components/main/main.css":
-/*!**********************************!*\
-  !*** ./components/main/main.css ***!
-  \**********************************/
+/***/ "./components/header/header.scss":
+/*!***************************************!*\
+  !*** ./components/header/header.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/main/main.css?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/header/header.scss?");
 
 /***/ }),
 
@@ -238,7 +216,29 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./comp
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar main = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./main.css */ \"./components/main/main.css\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return main('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n};\n\n//# sourceURL=webpack:///./components/main/main.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar main = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./main.scss */ \"./components/main/main.scss\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return main('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n};\n\n//# sourceURL=webpack:///./components/main/main.js?");
+
+/***/ }),
+
+/***/ "./components/main/main.scss":
+/*!***********************************!*\
+  !*** ./components/main/main.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/main/main.scss?");
+
+/***/ }),
+
+/***/ "./scss/app.scss":
+/*!***********************!*\
+  !*** ./scss/app.scss ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./scss/app.scss?");
 
 /***/ }),
 
