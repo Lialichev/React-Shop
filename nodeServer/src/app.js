@@ -1,6 +1,6 @@
 const header = require('./components/header/header')();
 const footer = require('./components/footer/footer')();
-const main = require('./components/main')();
+const main = require('./components/main/main')();
 const $ = require('jquery');
 const body = $('body');
 

@@ -1,5 +1,7 @@
 const $ = require('jquery');
-const main = require('../sctipts/elementBuilder');
+const main = require('../../sctipts/elementBuilder');
+
+require('./main.css');
 
 module.exports = () => {
     const someTitle = `<h1>Some Title</h1>`;
