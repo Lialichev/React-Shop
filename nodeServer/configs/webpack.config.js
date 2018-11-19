@@ -38,7 +38,7 @@ module.exports = {
             template: './index.html',
             version: package.version
         }),
-        new MiniCssExtractPlugin({filename: 'styles.css'})
+        new MiniCssExtractPlugin({filename: 'styles-[hash].css'})
     ],
 
     optimization: {
