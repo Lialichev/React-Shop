@@ -154,6 +154,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app.css":
+/*!*****************!*\
+  !*** ./app.css ***!
+  \*****************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./app.css?");
+
+/***/ }),
+
 /***/ "./app.js":
 /*!****************!*\
   !*** ./app.js ***!
@@ -161,29 +172,51 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var header = __webpack_require__(/*! ./components/header */ \"./components/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer */ \"./components/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main */ \"./components/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
+eval("var header = __webpack_require__(/*! ./components/header/header */ \"./components/header/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer/footer */ \"./components/footer/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main */ \"./components/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\n\n__webpack_require__(/*! ./app.css */ \"./app.css\");\n\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
-/***/ "./components/footer.js":
-/*!******************************!*\
-  !*** ./components/footer.js ***!
-  \******************************/
+/***/ "./components/footer/footer.css":
+/*!**************************************!*\
+  !*** ./components/footer/footer.css ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer.js?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/footer/footer.css?");
 
 /***/ }),
 
-/***/ "./components/header.js":
-/*!******************************!*\
-  !*** ./components/header.js ***!
-  \******************************/
+/***/ "./components/footer/footer.js":
+/*!*************************************!*\
+  !*** ./components/footer/footer.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header.js?");
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./footer.css */ \"./components/footer/footer.css\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer/footer.js?");
+
+/***/ }),
+
+/***/ "./components/header/header.css":
+/*!**************************************!*\
+  !*** ./components/header/header.css ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./components/header/header.css?");
+
+/***/ }),
+
+/***/ "./components/header/header.js":
+/*!*************************************!*\
+  !*** ./components/header/header.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./header.css */ \"./components/header/header.css\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header/header.js?");
 
 /***/ }),
 
