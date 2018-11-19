@@ -1,6 +1,4 @@
-const $ = require('jquery');
-const footer = require('../../sctipts/elementBuilder');
+import builder from '../../sctipts/elementBuilder'
+import './footer.scss';
 
-require('./footer.scss');
-
-module.exports = () => footer('footer', `<p>Easycode 2019 (c)</p>`, 'footer');
+export default () => builder('footer', `<p>Easycode 2019 (c)</p>`, 'footer');

@@ -1,13 +1,11 @@
-const $ = require('jquery');
-const main = require('../../sctipts/elementBuilder');
+import builder from '../../sctipts/elementBuilder';
+import './main.scss'
 
-require('./main.scss');
-
-module.exports = () => {
+export default () => {
     const someTitle = `<h1>Some Title</h1>`;
     const date = new Date;
     const dateToDay = date.getDate();
 
-    return main('main', `${someTitle} Дата: ${dateToDay}`, 'main');
+    return builder('main', `${someTitle} Дата: ${dateToDay}`, 'main');
 };
 

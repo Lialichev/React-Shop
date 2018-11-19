@@ -1,6 +1,4 @@
-const $ = require('jquery');
-const header = require('../../sctipts/elementBuilder');
+import builder from '../../sctipts/elementBuilder';
+import './header.scss';
 
-require('./header.scss');
-
-module.exports = () => header('header', `<a href="/">Logo</a>`, 'header');
+export default () => builder('header', `<a href="/">Logo</a>`, 'header');

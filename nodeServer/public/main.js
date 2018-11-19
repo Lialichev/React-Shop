@@ -158,10 +158,11 @@
 /*!****************!*\
   !*** ./app.js ***!
   \****************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var header = __webpack_require__(/*! ./components/header/header */ \"./components/header/header.js\")();\n\nvar footer = __webpack_require__(/*! ./components/footer/footer */ \"./components/footer/footer.js\")();\n\nvar main = __webpack_require__(/*! ./components/main/main */ \"./components/main/main.js\")();\n\nvar $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar body = $('body');\n\n__webpack_require__(/*! ./scss/app.scss */ \"./scss/app.scss\");\n\nbody.append(header);\nbody.append(main);\nbody.append(footer);\n\n//# sourceURL=webpack:///./app.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_header_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/header/header */ \"./components/header/header.js\");\n/* harmony import */ var _components_footer_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/footer/footer */ \"./components/footer/footer.js\");\n/* harmony import */ var _components_main_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/main/main */ \"./components/main/main.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scss/app.scss */ \"./scss/app.scss\");\n/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_scss_app_scss__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\nvar body = jquery__WEBPACK_IMPORTED_MODULE_3___default()('body');\n\nbody.append(Object(_components_header_header__WEBPACK_IMPORTED_MODULE_0__[\"default\"])());\nbody.append(Object(_components_main_main__WEBPACK_IMPORTED_MODULE_2__[\"default\"])());\nbody.append(Object(_components_footer_footer__WEBPACK_IMPORTED_MODULE_1__[\"default\"])());\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -169,10 +170,11 @@ eval("var header = __webpack_require__(/*! ./components/header/header */ \"./com
 /*!*************************************!*\
   !*** ./components/footer/footer.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar footer = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./footer.scss */ \"./components/footer/footer.scss\");\n\nmodule.exports = function () {\n  return footer('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n};\n\n//# sourceURL=webpack:///./components/footer/footer.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.scss */ \"./components/footer/footer.scss\");\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_footer_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  return Object(_sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('footer', \"<p>Easycode 2019 (c)</p>\", 'footer');\n});\n\n//# sourceURL=webpack:///./components/footer/footer.js?");
 
 /***/ }),
 
@@ -191,10 +193,11 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./comp
 /*!*************************************!*\
   !*** ./components/header/header.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar header = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./header.scss */ \"./components/header/header.scss\");\n\nmodule.exports = function () {\n  return header('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n};\n\n//# sourceURL=webpack:///./components/header/header.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header.scss */ \"./components/header/header.scss\");\n/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  return Object(_sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('header', \"<a href=\\\"/\\\">Logo</a>\", 'header');\n});\n\n//# sourceURL=webpack:///./components/header/header.js?");
 
 /***/ }),
 
@@ -213,10 +216,11 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./comp
 /*!*********************************!*\
   !*** ./components/main/main.js ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nvar main = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n\n__webpack_require__(/*! ./main.scss */ \"./components/main/main.scss\");\n\nmodule.exports = function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return main('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n};\n\n//# sourceURL=webpack:///./components/main/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sctipts/elementBuilder */ \"./sctipts/elementBuilder.js\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.scss */ \"./components/main/main.scss\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  var someTitle = \"<h1>Some Title</h1>\";\n  var date = new Date();\n  var dateToDay = date.getDate();\n  return Object(_sctipts_elementBuilder__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('main', \"\".concat(someTitle, \" \\u0414\\u0430\\u0442\\u0430: \").concat(dateToDay), 'main');\n});\n\n//# sourceURL=webpack:///./components/main/main.js?");
 
 /***/ }),
 
@@ -246,10 +250,11 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./scss
 /*!***********************************!*\
   !*** ./sctipts/elementBuilder.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var $ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n\nmodule.exports = function () {\n  var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';\n  var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'box';\n  return $(\"<\".concat(tag, \" class=\\\"\").concat(className, \"\\\">\").concat(content, \"</\").concat(tag, \">\"));\n};\n\n//# sourceURL=webpack:///./sctipts/elementBuilder.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';\n  var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'box';\n  return jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"<\".concat(tag, \" class=\\\"\").concat(className, \"\\\">\").concat(content, \"</\").concat(tag, \">\"));\n});\n\n//# sourceURL=webpack:///./sctipts/elementBuilder.js?");
 
 /***/ })
 

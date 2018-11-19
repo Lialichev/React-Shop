@@ -1,3 +1,3 @@
-const $ = require('jquery');
+import $ from 'jquery';
 
-module.exports = (tag = 'div', content = '', className = 'box') => $(`<${tag} class="${className}">${content}</${tag}>`);
+export default (tag = 'div', content = '', className = 'box') => $(`<${tag} class="${className}">${content}</${tag}>`);
