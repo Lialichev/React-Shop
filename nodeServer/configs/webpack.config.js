@@ -27,7 +27,11 @@ module.exports = {
             },
             {
                 test: /\s?.css$/,
-                use: [MiniCssExtractPlugin.loader, {loader: "css-loader"}]
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {loader: "css-loader"},
+                    {loader: "sass-loader"}
+                ]
             }
         ]
     },
@@ -38,7 +42,7 @@ module.exports = {
             template: './index.html',
             version: package.version
         }),
-        new MiniCssExtractPlugin({filename: 'styles.css'})
+        new MiniCssExtractPlugin({filename: `styles-${Date.now()}.css`})
     ],
 
     optimization: {

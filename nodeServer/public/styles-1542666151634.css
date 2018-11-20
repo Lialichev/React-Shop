@@ -1,0 +1,13 @@
+body {
+  background: #000;
+  border-radius: 20px; }
+  body::before {
+    content: '';
+    border: 20px solid transparent;
+    border-bottom-color: #222222;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  body * {
+    color: aqua; }
+
