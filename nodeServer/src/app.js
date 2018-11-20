@@ -1,5 +1,5 @@
-import header from './components/header/header';
-import footer from './components/footer/footer';
+import header from './components/header';
+import footer from './components/footer';
 import main from './components/main/main';
 import $ from 'jquery';
 
