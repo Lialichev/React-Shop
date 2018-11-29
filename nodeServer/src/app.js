@@ -1,12 +1,9 @@
-import header from './components/header';
-import footer from './components/footer';
-import main from './components/main/main';
-import $ from 'jquery';
+import React from 'react';
+import ReactDom from 'react-dom';
 
-const body = $('body');
+const paint = () => {
 
-import './scss/app.scss';
+    ReactDom.render(Paragraph, document.getElementById('app'));
+};
 
-body.append(header());
-body.append(main());
-body.append(footer());
+paint();
