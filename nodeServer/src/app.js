@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-const paint = () => {
+import Header from './components/header';
 
-    ReactDom.render(Paragraph, document.getElementById('app'));
-};
+import './variables.scss';
 
-paint();
+const Wrapper = (
+    <>
+        <Header />
+    </>
+);
+
+ReactDom.render(Wrapper, document.getElementById('app'));
