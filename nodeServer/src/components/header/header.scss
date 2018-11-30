@@ -1,0 +1,17 @@
+@import "../../variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 15px;
+  background-color: $baseBg;
+
+  &__logo {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    color: $colorLogo;
+    font-weight: bold;
+  }
+}
