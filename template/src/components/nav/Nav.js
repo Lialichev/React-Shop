@@ -3,7 +3,7 @@ import './nav.scss';
 const Nav = ({ list }) => (
   <nav className="nav">
     {
-      list.map((name, indedx) => <a href={`/${name.toLowerCase()}`} key={indedx} className="nav__item">{name}</a>)
+      list.map((name, index) => <a href={`/${name.toLowerCase()}`} key={index} className="nav__item">{name}</a>)
     }
   </nav>
 );

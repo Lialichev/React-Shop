@@ -1,5 +1,6 @@
 import './content.scss';
 import Hello from '../hello';
+import Number from '../number';
 
 const Content = () => (
   <div className="content">
@@ -9,6 +10,7 @@ const Content = () => (
       МакКлинток, профессор латыни из колледжа Hampden-Sydney
     </p>
     <Hello name="Vlad" />
+    <Number from="1" to="7" even />
   </div>
 );
 
