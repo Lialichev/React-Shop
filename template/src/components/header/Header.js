@@ -5,7 +5,7 @@ import './header.scss';
 const Header = () => (
   <header className="header">
     <a href="/" className="header__logo">LOGO</a>
-    <Nav />
+    <Nav list={['Home', 'Products', 'Contacts']} />
   </header>
 );
 
