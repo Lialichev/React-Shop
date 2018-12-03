@@ -1,4 +1,5 @@
 import './content.scss';
+import Hello from '../hello';
 
 const Content = () => (
   <div className="content">
@@ -7,6 +8,7 @@ const Content = () => (
       корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард
       МакКлинток, профессор латыни из колледжа Hampden-Sydney
     </p>
+    <Hello name="Vlad" />
   </div>
 );
 
