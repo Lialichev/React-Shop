@@ -7,7 +7,7 @@
     "test": "npx karma start karma.conf.js",
     "start": "npx webpack --config=./configs/webpack.conf.js --watch",
     "server": "npx webpack-dev-server --config=./configs/webpack.config.js --open",
-    "lint": "npx eslint src/**/*.js"
+    "lint": "npx eslint --fix src/**/*.js"
   },
   "author": "",
   "license": "ISC",

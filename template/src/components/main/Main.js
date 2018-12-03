@@ -1,7 +1,7 @@
-import Aside from '../aside'
-import Content from '../content'
+import Aside from '../aside';
+import Content from '../content';
 
-import './main.scss'
+import './main.scss';
 
 const Main = () => (
   <main className="main">

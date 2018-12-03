@@ -1,4 +1,4 @@
-import './aside.scss'
+import './aside.scss';
 
 const Aside = () => (
   <aside className="aside">

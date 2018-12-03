@@ -1,12 +1,11 @@
-const Error = (props) => {
-  console.log(props);
-  const date = props.date ? props.date.toLocaleString() : '';
-  const styles = { color: props.color || 'red' };
+const Error = ({ date, text, color = 'red' }) => {
+  const dateNow = date ? date.toLocaleString() : '';
+  const styles = { color };
 
   return (
     <div className="error" style={styles}>
-      <p>{props.text}</p>
-      <p>{date}</p>
+      <p>{text}</p>
+      <p>{dateNow}</p>
     </div>
   );
 };

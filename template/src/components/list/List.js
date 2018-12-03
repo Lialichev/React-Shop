@@ -1,10 +1,12 @@
-const List = (props) => (
-  props.items ?
-  <ul>
-    {
-      props.items.map(el => <li key={el.id}>{el.name}</li>)
-    }
-  </ul> : null
+const List = ({ items }) => (
+  items
+    ? (
+      <ul>
+        {
+          items.map(({ id, name }) => <li key={id}>{name}</li>)
+        }
+      </ul>
+    ) : null
 );
 
 export default List;
