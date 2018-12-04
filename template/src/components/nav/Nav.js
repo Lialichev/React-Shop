@@ -1,12 +1,12 @@
 import './nav.scss';
 
-const Nav = () => (
+const Nav = ({ list }) => (
   <nav className="nav">
-    <a href="/" className="nav__item">Преимущество</a>
-    <a href="/" className="nav__item">Площадки</a>
-    <a href="/" className="nav__item">Схема работы</a>
-    <a href="/" className="nav__item">Контакты</a>
+    {
+      list.map((name, index) => <a href={`/${name.toLowerCase()}`} key={index} className="nav__item">{name}</a>)
+    }
   </nav>
 );
+
 
 export default Nav;
