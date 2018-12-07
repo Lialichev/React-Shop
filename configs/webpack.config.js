@@ -16,19 +16,22 @@ module.exports = {
 
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      // },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+            ]
           }
         }
       },
@@ -51,7 +54,8 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({filename: 'styles.css'}),
     new webpack.ProvidePlugin({
-      React: 'react'
+      React: 'react',
+      Component: ['react', 'Component']
     })
   ],
 

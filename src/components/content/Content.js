@@ -2,6 +2,7 @@ import './content.scss';
 import Hello from '../hello';
 import Number from '../number';
 import UserList from '../userList';
+import Counter from '../counter';
 
 const users = [
   {
@@ -39,7 +40,8 @@ const Content = () => (
     </p>
     <Hello name="Vlad" />
     <Number from="1" to="7" even />
-    <UserList users={users} />
+    {/*<UserList users={users} />*/}
+    <Counter />
   </div>
 );
 

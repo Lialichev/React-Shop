@@ -17,7 +17,7 @@ const Wrapper = (
   <>
     <List items={items} />
     <Header />
-    <Main />
+    <Main title="Main" />
     <Footer />
   </>
 );
