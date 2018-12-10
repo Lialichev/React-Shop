@@ -3,6 +3,7 @@ import Hello from '../hello';
 import Number from '../number';
 import UserList from '../userList';
 import Counter from '../counter';
+import Button from '../button';
 
 const users = [
   {
@@ -38,10 +39,11 @@ const Content = () => (
       корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард
       МакКлинток, профессор латыни из колледжа Hampden-Sydney
     </p>
-    <Hello name="Vlad" />
-    <Number from="1" to="7" even />
+    <Hello name="Vlad"/>
+    <Number from="1" to="7" even/>
     {/*<UserList users={users} />*/}
-    <Counter />
+    <Counter/>
+    <Button/>
   </div>
 );
 
