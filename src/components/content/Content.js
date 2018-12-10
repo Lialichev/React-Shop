@@ -4,6 +4,7 @@ import Number from '../number';
 import UserList from '../userList';
 import Counter from '../counter';
 import Button from '../button';
+import Accordion from '../accordion';
 
 const users = [
   {
@@ -44,6 +45,7 @@ const Content = () => (
     {/*<UserList users={users} />*/}
     <Counter/>
     <Button/>
+    <Accordion/>
   </div>
 );
 
