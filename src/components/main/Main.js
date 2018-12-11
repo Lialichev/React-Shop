@@ -1,6 +1,7 @@
 import Aside from '../aside';
 import Content from '../content';
 import UserList from '../userList';
+import Form from '../form';
 
 import './main.scss';
 
@@ -23,9 +24,10 @@ class Main extends Component {
 
     return (
       <main className="main" title={title}>
-        <Aside/>
-        <Content/>
-        <UserList items={users} handleClick={this.showUserName}/>
+        {/*<Aside/>*/}
+        {/*<Content/>*/}
+        {/*<UserList items={users} handleClick={this.showUserName}/>*/}
+        <Form/>
       </main>
     );
   }
