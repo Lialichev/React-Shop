@@ -2,13 +2,15 @@ import Aside from '../aside';
 import Content from '../content';
 import UserList from '../userList';
 import Posts from '../posts';
+import DateNow from '../date';
 
 import './main.scss';
 
 class Main extends Component {
   state = {
     users: [],
-    posts: false
+    posts: false,
+    date: true
   };
 
   componentDidMount() {
@@ -17,23 +19,28 @@ class Main extends Component {
       .then(users => this.setState({users}))
   }
 
-  showUserName({ id }) {
+  showUserName({id}) {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then(res => res.json())
       .then(posts => this.setState({posts}))
   }
 
+  toggleDate() {
+    this.setState({date: !this.state.date});
+  }
+
   render() {
     const {title} = this.props;
-    const {users, posts} = this.state;
-    console.log(posts);
+    const {users, posts, date} = this.state;
 
     return (
       <main className="main" title={title}>
         <Aside/>
         <Content/>
         <UserList items={users} handleClick={(e) => this.showUserName(e)}/>
-        <Posts posts={posts} />
+        <Posts posts={posts}/>
+        <button onClick={(e) => this.toggleDate(e)}>Удаление даты</button>
+        {date && <DateNow/>}
       </main>
     );
   }
