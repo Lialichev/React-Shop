@@ -5,7 +5,7 @@ class Accordion extends Component {
     isActive: true
   };
 
-  handleClick() {
+  handleClick = () => {
     this.setState({isActive: !this.state.isActive});
   };
 
@@ -14,7 +14,7 @@ class Accordion extends Component {
 
     return (
       <>
-        <button onClick={(e) => this.handleClick(e)}>{isActive ? 'Hide' : 'Show'}</button>
+        <button onClick={this.handleClick}>{isActive ? 'Hide' : 'Show'}</button>
         <small className={isActive ? 'active' : ''}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias blanditiis delectus dignissimos doloribus eos
           et, eveniet expedita harum illum in minima necessitatibus omnis perferendis, praesentium tempora ullam vero,

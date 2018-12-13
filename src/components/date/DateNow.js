@@ -21,7 +21,7 @@ class DateNow extends Component {
   }
 
   render() {
-    const {date, time} = this.state;
+    const { date, time } = this.state;
 
     return (
       <div className="date">

@@ -3,15 +3,15 @@ class Button extends Component {
     isActive: true
   };
 
-  handleClick () {
+  handleClick = () => {
     this.setState({isActive: !this.state.isActive});
   };
 
   render() {
-    const {isActive} = this.state;
+    const { isActive } = this.state;
 
     return (
-      <button className={isActive ? 'active' : ''} onClick={(e) => this.handleClick(e)}>Кнопка</button>
+      <button className={isActive ? 'active' : ''} onClick={this.handleClick}>Кнопка</button>
     )
   }
 }

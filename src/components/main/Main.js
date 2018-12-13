@@ -9,7 +9,7 @@ import './main.scss';
 class Main extends Component {
   state = {
     users: [],
-    posts: false,
+    posts: [],
     date: true
   };
 
@@ -19,7 +19,7 @@ class Main extends Component {
       .then(users => this.setState({users}))
   }
 
-  showUserName({id}) {
+  getUserPosts({id}) {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then(res => res.json())
       .then(posts => this.setState({posts}))
@@ -30,15 +30,15 @@ class Main extends Component {
   }
 
   render() {
-    const {title} = this.props;
-    const {users, posts, date} = this.state;
+    const { title } = this.props;
+    const { users, posts, date } = this.state;
 
     return (
       <main className="main" title={title}>
         <Aside/>
         <Content/>
-        <UserList items={users} handleClick={(e) => this.showUserName(e)}/>
-        <Posts posts={posts}/>
+        <UserList items={users} handleClick={(e) => this.getUserPosts(e)}/>
+        {(posts.length !== 0) && <Posts posts={posts}/>}
         <button onClick={(e) => this.toggleDate(e)}>Удаление даты</button>
         {date && <DateNow/>}
       </main>
