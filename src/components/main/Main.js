@@ -12,14 +12,29 @@ class Main extends Component {
   state = {
     users: [],
     posts: [],
-    date: true
+    date: true,
+    data: {}
   };
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(users => this.setState({users}))
+
+    setTimeout(() => {
+      this.setState({
+        data: {
+          email: 'lya@test.com',
+          name: 'Vladislav',
+          surname: 'Lyalichev'
+        }
+      });
+    }, 200);
   }
+
+  onSave = (data) => {
+    console.log(data);
+  };
 
   getUserPosts({id}) {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
@@ -33,7 +48,7 @@ class Main extends Component {
 
   render() {
     const {title} = this.props;
-    const {users} = this.state;
+    const {users, data} = this.state;
     const testFn = text => console.log(text);
 
     return (
@@ -41,8 +56,8 @@ class Main extends Component {
         {/*<Aside/>*/}
         {/*<Content/>*/}
         {/*<UserList items={users} handleClick={this.showUserName}/>*/}
-        <Form/>
-        <RenameText testValue={testFn} />
+        <Form data={data} onSave={this.onSave}/>
+        {/*<RenameText testValue={testFn} />*/}
       </main>
     );
   }

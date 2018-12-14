@@ -1,10 +1,20 @@
 class Form extends Component {
-  state = {
-    // firstName: '',
-    // lastName: '',
-    // role: 'Guest',
-    // flag: false
-  };
+  static getDerivedStateFromProps({ data }, currentState) {
+    if (!data) return null;
+
+    const props = Object.entries(data);
+    const isStateEmpty = props.every(([key]) => !currentState[key].value);
+
+    if (isStateEmpty) {
+      const state = {};
+
+      props.forEach(([key, value]) => state[key] = { value, error: '' });
+
+      return state;
+    }
+
+    return null;
+  }
 
   constructor(props) {
     super(props);
@@ -19,75 +29,85 @@ class Form extends Component {
 
     this.state = {};
 
-    this.fields.forEach(({label}) => this.state[label] = '')
+    this.fields.forEach(({label}) => this.state[label] = ({
+      value: '',
+      error: ''
+    }));
   }
 
-  // roles = ['Admin', 'Guest', 'Superuser'];
-  //
-  // onChange = ({target}) => {
-  //   if (/checkbox|radio/i.test(target.type)) {
-  //     this.setState({[target.name]: target.checked});
-  //   } else {
-  //     this.setState({[target.name]: target.value});
-  //   }
-  // };
-
   onChange = ({target}) => {
+    const field = this.state[target.name];
+
     if (/checkbox|radio/i.test(target.type)) {
-      this.setState({[target.name]: target.checked});
+      this.setState({[target.name]: {...field, value: target.checked}});
     } else {
-      this.setState({[target.name]: target.value});
+      this.setState({[target.name]: {...field, value: target.value}});
     }
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const data = {};
+
+    Object.entries(this.state)
+      .map(([key, { value }]) => data[key] = value);
+
+    if (this.props.onSave) this.props.onSave(data);
+  };
+
+  isButtonDisabled() {
+    return Object.entries(this.state)
+      .some(([key, {error, value}]) => error || !value);
+  }
+
+  validate = ({target}) => {
+    const field = this.fields.find(item => item.label === target.name);
+    const stateField = this.state[target.name];
+    let error = '';
+
+    if (!target.value || !field.reg.test(target.value)) {
+      error = 'is not valid';
+    } else {
+      error = '';
+    }
+
+    if (target.name === 'repeatPassword' && this.state.password.value !== target.value) {
+      error = 'Passwords are not equled'
+    }
+
+    this.setState({[target.name]: {...stateField, error}});
+  };
+
   render() {
-    // const {firstName, lastName, role, flag} = this.state;
-    const { state } = this;
+    const {state} = this;
 
     return (
-      <form>
-        {/*<input*/}
-        {/*type="text"*/}
-        {/*value={firstName}*/}
-        {/*name="firstName"*/}
-        {/*onChange={this.onChange}*/}
-        {/*/>*/}
-        {/*<input*/}
-        {/*type="text"*/}
-        {/*value={lastName}*/}
-        {/*name="lastName"*/}
-        {/*onChange={this.onChange}*/}
-        {/*/>*/}
-        {/*<select*/}
-        {/*value={role}*/}
-        {/*name="role"*/}
-        {/*onChange={this.onChange}*/}
-        {/*>*/}
-        {/*{*/}
-        {/*this.roles.map(val => <option value={val}>{val}</option>)*/}
-        {/*}*/}
-        {/*</select>*/}
-        {/*<input*/}
-        {/*type="checkbox"*/}
-        {/*name="flag"*/}
-        {/*onChange={this.onChange}*/}
-        {/*checked={flag}*/}
-        {/*/>*/}
+      <form onSubmit={this.onSubmit}>
         <ul>
           {
-            this.fields.map((field =>
-              <li>
-                <input
-                  type={field.secure ? 'password' : 'text'}
-                  name={field.label}
-                  value={state[field.label]}
-                  placeholder={field.place}
-                  onChange={this.onChange}
-                />
-              </li>
+            this.fields.map(((field, index) =>
+                <li key={index}>
+                  <input
+                    type={field.secure ? 'password' : 'text'}
+                    name={field.label}
+                    value={state[field.label].value}
+                    placeholder={field.place}
+                    onChange={this.onChange}
+                    onBlur={this.validate}
+                  />
+                  {
+                    state[field.label].error &&
+                    <mark style={{color: 'red'}}>{state[field.label].error}</mark>
+                  }
+                </li>
             ))
           }
         </ul>
+        <input
+          type="submit"
+          value="Отправить"
+          disabled={this.isButtonDisabled()}
+        />
       </form>
     );
   }
