@@ -3,6 +3,8 @@ import Content from '../content';
 import UserList from '../userList';
 import Posts from '../posts';
 import DateNow from '../date';
+import Form from '../form';
+import RenameText from '../renameText';
 
 import './main.scss';
 
@@ -30,17 +32,17 @@ class Main extends Component {
   }
 
   render() {
-    const { title } = this.props;
-    const { users, posts, date } = this.state;
+    const {title} = this.props;
+    const {users} = this.state;
+    const testFn = text => console.log(text);
 
     return (
       <main className="main" title={title}>
-        <Aside/>
-        <Content/>
-        <UserList items={users} handleClick={(e) => this.getUserPosts(e)}/>
-        {(posts.length !== 0) && <Posts posts={posts}/>}
-        <button onClick={(e) => this.toggleDate(e)}>Удаление даты</button>
-        {date && <DateNow/>}
+        {/*<Aside/>*/}
+        {/*<Content/>*/}
+        {/*<UserList items={users} handleClick={this.showUserName}/>*/}
+        <Form/>
+        <RenameText testValue={testFn} />
       </main>
     );
   }
