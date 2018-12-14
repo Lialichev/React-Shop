@@ -1,13 +1,19 @@
 import Aside from '../aside';
 import Content from '../content';
 import UserList from '../userList';
+import Posts from '../posts';
+import DateNow from '../date';
 import Form from '../form';
 import RenameText from '../renameText';
 
 import './main.scss';
 
 class Main extends Component {
-  state = {users: []};
+  state = {
+    users: [],
+    posts: [],
+    date: true
+  };
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -15,8 +21,14 @@ class Main extends Component {
       .then(users => this.setState({users}))
   }
 
-  showUserName(user) {
-    alert(user.username);
+  getUserPosts({id}) {
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+  }
+
+  toggleDate() {
+    this.setState({date: !this.state.date});
   }
 
   render() {
