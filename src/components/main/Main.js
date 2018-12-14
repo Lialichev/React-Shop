@@ -2,6 +2,7 @@ import Aside from '../aside';
 import Content from '../content';
 import UserList from '../userList';
 import Form from '../form';
+import RenameText from '../renameText';
 
 import './main.scss';
 
@@ -21,6 +22,7 @@ class Main extends Component {
   render() {
     const {title} = this.props;
     const {users} = this.state;
+    const testFn = text => console.log(text);
 
     return (
       <main className="main" title={title}>
@@ -28,6 +30,7 @@ class Main extends Component {
         {/*<Content/>*/}
         {/*<UserList items={users} handleClick={this.showUserName}/>*/}
         <Form/>
+        <RenameText testValue={testFn} />
       </main>
     );
   }
