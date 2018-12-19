@@ -1,39 +1,53 @@
-import Aside from '../aside';
-import Content from '../content';
-import UserList from '../userList';
-import Form from '../form';
-import RenameText from '../renameText';
+import Login from '../../pages/login';
+import { checkUser } from '../../services';
 
 import './main.scss';
 
-class Main extends Component {
-  state = {users: []};
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(users => this.setState({users}))
+class Main extends Component {
+  state = {
+    user: null,
+    loading: true,
   }
 
-  showUserName(user) {
-    alert(user.username);
+  componentDidMount() {
+    checkUser()
+      .then(user => this.setState({ loading: false, user }))
+      .catch(() => this.setState({ loading: false }));
+  }
+
+  onLogin = (user) => {
+    this.setState({ user });
+  }
+
+  renderContent() {
+    const { user } = this.state;
+
+    return (
+      <>
+        <h1>{user ? `Hello, ${user.firstName}` : 'Login'}</h1>
+        {
+          user
+            ? <p>Hello</p>
+            : <Login onLogin={this.onLogin} />
+        }
+      </>
+    );
   }
 
   render() {
-    const {title} = this.props;
-    const {users} = this.state;
-    const testFn = text => console.log(text);
+    const { loading } = this.state;
 
     return (
-      <main className="main" title={title}>
-        {/*<Aside/>*/}
-        {/*<Content/>*/}
-        {/*<UserList items={users} handleClick={this.showUserName}/>*/}
-        <Form/>
-        <RenameText testValue={testFn} />
+      <main className="main">
+        {loading
+          ? 'Loading...'
+          : this.renderContent()
+        }
       </main>
     );
   }
 }
+
 
 export default Main;
