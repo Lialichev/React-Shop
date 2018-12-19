@@ -7,11 +7,6 @@ class Counter extends Component {
     this.setState({
       counter: this.state.counter + 1
     });
-    // this.setState((state, props) => {
-    //   console.log(state, props);
-    //
-    //   return {counter: state.counter + 1}
-    // });
   };
 
   render() {
