@@ -1,66 +1,53 @@
-import Aside from '../aside';
-import Content from '../content';
-import UserList from '../userList';
-import Posts from '../posts';
-import DateNow from '../date';
-import Form from '../form';
-import RenameText from '../renameText';
+import Login from '../../pages/login';
+import { checkUser } from '../../services';
 
 import './main.scss';
 
+
 class Main extends Component {
   state = {
-    users: [],
-    posts: [],
-    date: true,
-    data: {}
-  };
+    user: null,
+    loading: true,
+  }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(users => this.setState({users}))
+    checkUser()
+      .then(user => this.setState({ loading: false, user }))
+      .catch(() => this.setState({ loading: false }));
+  }
 
-    setTimeout(() => {
-      this.setState({
-        data: {
-          email: 'lya@test.com',
-          name: 'Vladislav',
-          surname: 'Lyalichev'
+  onLogin = (user) => {
+    this.setState({ user });
+  }
+
+  renderContent() {
+    const { user } = this.state;
+
+    return (
+      <>
+        <h1>{user ? `Hello, ${user.firstName}` : 'Login'}</h1>
+        {
+          user
+            ? <p>Hello</p>
+            : <Login onLogin={this.onLogin} />
         }
-      });
-    }, 200);
-  }
-
-  onSave = (data) => {
-    console.log(data);
-  };
-
-  getUserPosts({id}) {
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
-      .then(res => res.json())
-      .then(posts => this.setState({posts}))
-  }
-
-  toggleDate() {
-    this.setState({date: !this.state.date});
+      </>
+    );
   }
 
   render() {
-    const {title} = this.props;
-    const {users, data} = this.state;
-    const testFn = text => console.log(text);
+    const { loading } = this.state;
 
     return (
-      <main className="main" title={title}>
-        {/*<Aside/>*/}
-        {/*<Content/>*/}
-        {/*<UserList items={users} handleClick={this.showUserName}/>*/}
-        <Form data={data} onSave={this.onSave}/>
-        {/*<RenameText testValue={testFn} />*/}
+      <main className="main">
+        {loading
+          ? 'Loading...'
+          : this.renderContent()
+        }
       </main>
     );
   }
 }
+
 
 export default Main;
