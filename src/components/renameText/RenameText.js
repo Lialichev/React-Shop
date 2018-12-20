@@ -8,11 +8,8 @@ class RenameText extends Component {
     this.setState({ isEdit: true });
   };
 
-  handlerBlur = (e) => {
-    const testFun = this.props.testValue;
-
+  handlerBlur = () => {
     this.setState({ isEdit: false });
-    if (testFun) testFun(e.target.value);
   };
 
   handlerChange = ({ target }) => {
@@ -25,8 +22,9 @@ class RenameText extends Component {
     return (
       <>
         {
-          isEdit ? <input type="text" value={text} onChange={this.handlerChange} onBlur={this.handlerBlur}/> :
-            <span onClick={this.handleClick}>{text}</span>
+          isEdit
+            ? <input type="text" value={text} onChange={this.handlerChange} onBlur={this.handlerBlur}/>
+            : <span onClick={this.handleClick}>{text}</span>
         }
       </>
     );

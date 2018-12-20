@@ -1,4 +1,5 @@
 import Login from '../../pages/login';
+import RenameText from '../renameText';
 import { checkUser } from '../../services';
 
 import './main.scss';
@@ -8,7 +9,7 @@ class Main extends Component {
   state = {
     user: null,
     loading: true,
-  }
+  };
 
   componentDidMount() {
     checkUser()
@@ -18,7 +19,7 @@ class Main extends Component {
 
   onLogin = (user) => {
     this.setState({ user });
-  }
+  };
 
   renderContent() {
     const { user } = this.state;
@@ -44,6 +45,7 @@ class Main extends Component {
           ? 'Loading...'
           : this.renderContent()
         }
+        <RenameText />
       </main>
     );
   }
