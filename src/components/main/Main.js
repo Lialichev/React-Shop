@@ -1,43 +1,26 @@
 import Login from '../../pages/login';
-import RenameText from '../renameText';
-import { checkUser } from '../../services';
+import UserInfo from '../../pages/userInfo';
 
 import './main.scss';
 
 
 class Main extends Component {
-  state = {
-    user: null,
-    loading: true,
-  };
-
-  componentDidMount() {
-    checkUser()
-      .then(user => this.setState({ loading: false, user }))
-      .catch(() => this.setState({ loading: false }));
-  }
-
-  onLogin = (user) => {
-    this.setState({ user });
-  };
-
   renderContent() {
-    const { user } = this.state;
+    const { user, onLogin, info } = this.props;
 
     return (
       <>
-        <h1>{user ? `Hello, ${user.firstName}` : 'Login'}</h1>
         {
           user
-            ? <p>Hello</p>
-            : <Login onLogin={this.onLogin} />
+            ? <UserInfo user={user} info={info} />
+            : <Login onLogin={onLogin} />
         }
       </>
     );
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading } = this.props;
 
     return (
       <main className="main">
@@ -45,7 +28,6 @@ class Main extends Component {
           ? 'Loading...'
           : this.renderContent()
         }
-        <RenameText />
       </main>
     );
   }
