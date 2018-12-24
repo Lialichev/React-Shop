@@ -1,6 +1,6 @@
 import Login from '../../pages/login';
-import RenameText from '../renameText';
 import { checkUser } from '../../services';
+import Products from '../products';
 
 import './main.scss';
 
@@ -45,7 +45,7 @@ class Main extends Component {
           ? 'Loading...'
           : this.renderContent()
         }
-        <RenameText />
+        <Products />
       </main>
     );
   }

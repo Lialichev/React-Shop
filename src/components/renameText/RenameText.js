@@ -1,7 +1,7 @@
 class RenameText extends Component {
   state = {
     isEdit: false,
-    text: 'Some text'
+    text: this.props.text || 'Some text'
   };
 
   handleClick = () => {
@@ -16,14 +16,24 @@ class RenameText extends Component {
     this.setState({ text: target.value });
   };
 
+  field() {
+    const { textarea } = this.props;
+    const { text } = this.state;
+
+    return (
+      textarea
+        ? <textarea value={text} onChange={this.handlerChange} onBlur={this.handlerBlur}></textarea>
+        : <input type="text" value={text} onChange={this.handlerChange} onBlur={this.handlerBlur} />
+    );
+  }
+
   render() {
     const { isEdit, text } = this.state;
-
     return (
       <>
         {
           isEdit
-            ? <input type="text" value={text} onChange={this.handlerChange} onBlur={this.handlerBlur}/>
+            ? this.field()
             : <span onClick={this.handleClick}>{text}</span>
         }
       </>
