@@ -22,8 +22,20 @@ class RenameText extends Component {
 
     return (
       textarea
-        ? <textarea value={text} onChange={this.handlerChange} onBlur={this.handlerBlur}></textarea>
-        : <input type="text" value={text} onChange={this.handlerChange} onBlur={this.handlerBlur} />
+        ? <textarea
+          value={text}
+          onChange={this.handlerChange}
+          onBlur={this.handlerBlur}
+          ref={el => this.fieldElement = el}
+        >
+        </textarea>
+        : <input
+          type="text"
+          value={text}
+          onChange={this.handlerChange}
+          onBlur={this.handlerBlur}
+          ref={el => this.fieldElement = el}
+        />
     );
   }
 
