@@ -1,19 +1,29 @@
 class RenameText extends Component {
   state = {
     isEdit: false,
-    text: this.props.text || 'Some text'
+    text: this.props.text || 'Some text',
+    inFocus: false
   };
 
   handleClick = () => {
-    this.setState({ isEdit: true });
+    this.setState({
+      isEdit: true,
+      inFocus: true
+    });
   };
 
   handlerBlur = () => {
-    this.setState({ isEdit: false });
+    this.setState({
+      isEdit: false,
+      inFocus: false
+    });
   };
 
   handlerChange = ({ target }) => {
-    this.setState({ text: target.value });
+    this.setState({
+      text: target.value,
+      inFocus: false
+    });
   };
 
   field() {
@@ -37,6 +47,10 @@ class RenameText extends Component {
           ref={el => this.fieldElement = el}
         />
     );
+  }
+
+  componentDidUpdate() {
+    if (this.state.inFocus) this.fieldElement.focus();
   }
 
   render() {
