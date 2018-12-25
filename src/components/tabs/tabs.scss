@@ -1,5 +1,6 @@
 .tabs {
   .nav-tab {
+
     ul {
       display: flex;
       list-style: none;
@@ -10,16 +11,17 @@
       overflow: hidden;
 
       li {
+
         &.active a {
           background: #aaa;
         }
-
       }
 
       a {
         display: block;
         padding: 7px 10px;
         text-decoration: none;
+        color: #ffffff;
       }
     }
   }

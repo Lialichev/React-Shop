@@ -1,10 +1,11 @@
 import Nav from '../nav';
-
 import './header.scss';
 
 const Header = ({user, info}) => (
   <header className="header">
-    <a href="/" className="header__logo">LOGO</a>
+    <a href="/" className="header__logo">
+      <img src="images/images.png" alt=""/>
+    </a>
     <Nav list={['Home', 'Products', 'Contacts']}/>
     <div className="user-box">
       {
