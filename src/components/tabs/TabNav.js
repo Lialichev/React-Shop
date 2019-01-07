@@ -1,7 +1,7 @@
 export const TabNav = ({ tabs, currentIndex, selectTab }) => {
   const itemClick = (e, i) => {
     e.preventDefault();
-    selectTab(i)
+    selectTab(i);
   };
 
   return (

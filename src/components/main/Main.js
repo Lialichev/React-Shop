@@ -18,22 +18,17 @@ class Main extends Component {
       <>
         {
           user
-            ? <UserInfo user={user} info={info}/>
-            : <Login onLogin={onLogin}/>
+            ? <UserInfo user={user} info={info} />
+            : <Login onLogin={onLogin} />
         }
       </>
     );
   }
 
   render() {
-    const {loading} = this.props;
 
     return (
       <main className="main">
-        {/*{loading*/}
-        {/*? 'Loading...'*/}
-        {/*: this.renderContent()*/}
-        {/*}*/}
         <Tabs>
           <Tab title="Tab 1">
             <h3>Tab header 1</h3>
