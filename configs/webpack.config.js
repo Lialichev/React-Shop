@@ -12,7 +12,8 @@ module.exports = {
   context: path.resolve(__dirname, '../src'),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../public')
+    path: path.resolve(__dirname, '../public'),
+    publicPath: '/'
   },
 
   mode: 'development',
@@ -82,7 +83,8 @@ module.exports = {
 
   devServer: {
     publicPath: '/',
-    port: 5000
+    port: 5000,
+    historyApiFallback: true
   },
 
   optimization: {

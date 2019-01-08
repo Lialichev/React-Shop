@@ -1,5 +1,7 @@
 import Header from './components/header';
 import Main from './components/main';
+import Footer from './components/footer';
+import { Pages } from './pages/Pages';
 import {checkUser, getInfo} from "./services";
 
 class AppComponent extends Component {
@@ -37,7 +39,10 @@ class AppComponent extends Component {
           info={info}
           onLogin={this.onLogin}
           loading={loading}
-        />
+        >
+          <Pages />
+        </Main>
+        <Footer />
       </>
     )
   }

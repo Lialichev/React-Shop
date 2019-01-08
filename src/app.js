@@ -1,14 +1,13 @@
 import ReactDom from 'react-dom';
 import AppComponent from './AppComponent'
-import Footer from './components/footer';
+import { BrowserRouter } from 'react-router-dom';
 
 import './normalize.scss';
 
 const Wrapper = (
-  <>
+  <BrowserRouter>
     <AppComponent />
-    <Footer />
-  </>
+  </BrowserRouter>
 );
 
 ReactDom.render(Wrapper, document.getElementById('app'));

@@ -1,4 +1,5 @@
 import Nav from '../nav';
+import { NavLink } from 'react-router-dom';
 import './header.scss';
 
 const Header = ({user, info}) => (
@@ -16,8 +17,8 @@ const Header = ({user, info}) => (
             </span>
           : (
             <span>
-              <a href="/singin">Sing in</a> /
-              <a href="/singup">Sing up</a>
+              <NavLink to="/login" activeClassName="active">Sing in</NavLink> /
+              <NavLink to="/user" activeClassName="active">Sing up</NavLink>
             </span>
           )
       }
