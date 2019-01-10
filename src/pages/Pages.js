@@ -22,5 +22,5 @@ export const Pages = () => {
         render={({ location }) => <h1>Code: 404! Page not found <em>{location.pathname}</em></h1>}
       />
     </Switch>
-  )
+  );
 };

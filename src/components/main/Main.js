@@ -1,6 +1,7 @@
 import Login from '../../pages/login';
 import UserInfo from '../../pages/userInfo';
 import {Tab, Tabs} from '../tabs';
+import Loader from '../loader';
 
 import './main.scss';
 
@@ -25,6 +26,7 @@ class Main extends Component {
           {/*}*/}
         {/*</>*/}
         {this.props.children}
+        <Loader show={true} />
       </main>
     );
   }
