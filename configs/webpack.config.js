@@ -18,6 +18,13 @@ module.exports = {
 
   mode: 'development',
 
+  resolve: {
+    alias: {
+      services: path.resolve(__dirname, '../src/services'),
+      components: path.resolve(__dirname, '../src/components')
+    }
+  },
+
   module: {
     rules: [
       // {
