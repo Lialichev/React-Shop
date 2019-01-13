@@ -1,51 +1,33 @@
 import Login from '../../pages/login';
-import { checkUser } from '../../services';
 import Products from '../products';
+import UserInfo from '../../pages/userInfo';
+import {Tab, Tabs} from '../tabs';
+import Loader from '../loader';
 
 import './main.scss';
 
+const tabs = [
+  {title: 'Tab 1', content: 'Some text is here'},
+  {title: 'Tab 2', content: 'Another content'},
+  {title: 'Tab 1', content: 'Third text'}
+];
 
 class Main extends Component {
-  state = {
-    user: null,
-    loading: true,
-  };
-
-  componentDidMount() {
-    checkUser()
-      .then(user => this.setState({ loading: false, user }))
-      .catch(() => this.setState({ loading: false }));
-  }
-
-  onLogin = (user) => {
-    this.setState({ user });
-  };
-
-  renderContent() {
-    const { user } = this.state;
-
-    return (
-      <>
-        <h1>{user ? `Hello, ${user.firstName}` : 'Login'}</h1>
-        {
-          user
-            ? <p>Hello</p>
-            : <Login onLogin={this.onLogin} />
-        }
-      </>
-    );
-  }
 
   render() {
-    const { loading } = this.state;
+    const {user, onLogin, info} = this.props;
 
     return (
       <main className="main">
-        {loading
-          ? 'Loading...'
-          : this.renderContent()
-        }
-        <Products />
+        {/*<>*/}
+          {/*{*/}
+            {/*user*/}
+              {/*? <UserInfo user={user} info={info} />*/}
+              {/*: <Login onLogin={onLogin} />*/}
+          {/*}*/}
+        {/*</>*/}
+        {this.props.children}
+        <Loader show={true} />
       </main>
     );
   }

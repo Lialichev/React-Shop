@@ -1,25 +1,13 @@
 import ReactDom from 'react-dom';
-
-import Header from './components/header';
-import Main from './components/main';
-import Footer from './components/footer';
-import List from './components/list';
+import AppComponent from './AppComponent'
+import { BrowserRouter } from 'react-router-dom';
 
 import './normalize.scss';
 
-const items = [
-  { id: 1, name: 'Vyasia' },
-  { id: 2, name: 'Petya' },
-  { id: 3, name: 'Marco' },
-];
-
 const Wrapper = (
-  <>
-    <List items={items} />
-    <Header />
-    <Main title="Main" />
-    <Footer />
-  </>
+  <BrowserRouter>
+    <AppComponent />
+  </BrowserRouter>
 );
 
 ReactDom.render(Wrapper, document.getElementById('app'));

@@ -1,15 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const package = require('../package.json');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const package = require('../package.json');
 const webpack = require('webpack');
+
+const images = ['jpeg', 'png', 'svg', 'jpg'];
 
 module.exports = {
   entry: './app.js',
   context: path.resolve(__dirname, '../src'),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../public')
+    path: path.resolve(__dirname, '../public'),
+    publicPath: '/'
   },
 
   mode: 'development',
@@ -42,6 +46,18 @@ module.exports = {
           {loader: "css-loader"},
           {loader: "sass-loader"}
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+              name: 'images/[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
@@ -56,12 +72,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
       Component: ['react', 'Component']
-    })
+    }),
+    new CopyWebpackPlugin(
+      images.map(etx => ({
+        from: `**/*/*.${etx}`,
+        to: 'images/[name].[ext]'
+      }))
+    )
   ],
 
   devServer: {
     publicPath: '/',
-    port: 5000
+    port: 5000,
+    historyApiFallback: true
   },
 
   optimization: {
