@@ -1,4 +1,5 @@
 import Login from '../../pages/login';
+import Products from '../products';
 import UserInfo from '../../pages/userInfo';
 import {Tab, Tabs} from '../tabs';
 import Loader from '../loader';

@@ -1,0 +1,40 @@
+@import "../../variables";
+
+.products {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 30px;
+  background-color: #eee;
+  width: 100%;
+  max-width: 500px;
+
+  textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  textarea,
+  input {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #000;
+    font-family: sans-serif;
+  }
+
+  button {
+    margin-top: 15px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__price {
+    margin-top: 30px;
+  }
+
+  &__description {
+    margin-top: 15px;
+  }
+}
