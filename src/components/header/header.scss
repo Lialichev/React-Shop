@@ -13,5 +13,9 @@
     font-size: 18px;
     color: $colorLogo;
     font-weight: bold;
+
+    img {
+      max-height: 50px;
+    }
   }
 }

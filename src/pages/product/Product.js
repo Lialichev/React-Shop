@@ -1,4 +1,7 @@
+import RenameText from 'components/renameText';
 import { getProdust } from 'services';
+
+import './product.scss';
 
 class Product extends Component {
   state={
@@ -11,13 +14,23 @@ class Product extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { data } = this.state;
 
     return (
-      <>
-        <h1>Product {match.params.id}</h1>
-        <div>{this.state.data && this.state.data.title}</div>
-      </>
+      <div className="products">
+        <div className="products__title">
+          Title:
+          {data && <RenameText>{data.title}</RenameText>}
+        </div>
+        <div className="products__price">
+          $
+          {data && <RenameText>{data.price}</RenameText>}
+        </div>
+        <div className="products__description">
+          {data && <RenameText textarea>{data.title}</RenameText>}
+        </div>
+        <button type="submit">Send</button>
+      </div>
     );
   }
 }

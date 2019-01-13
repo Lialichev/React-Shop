@@ -1,4 +1,4 @@
-class RenameText extends Component {
+class RenameText extends React.PureComponent {
   state = {
     isEdit: false,
     text: this.props.children || 'Some text'
@@ -45,6 +45,7 @@ class RenameText extends Component {
 
   render() {
     const { isEdit, text } = this.state;
+
     return (
       <>
         {
