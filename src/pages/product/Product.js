@@ -1,5 +1,5 @@
 import RenameText from 'components/renameText';
-import { getProdust } from 'services';
+import { getProducts } from 'services';
 
 import './product.scss';
 
@@ -9,7 +9,9 @@ class Product extends Component {
   };
 
   componentDidMount() {
-    getProdust(this.props.match.params.id)
+    const { match } = this.props;
+
+    getProducts(match.params.id)
       .then(data => this.setState({ data }));
   }
 

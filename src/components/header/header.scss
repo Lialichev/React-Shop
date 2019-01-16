@@ -19,3 +19,21 @@
     }
   }
 }
+
+.user-box {
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #eeeeee;
+
+  a {
+    color: #000;
+  }
+
+  &__logout {
+    margin-left: 10px;
+  }
+
+  &__space {
+    margin: 0 5px;
+  }
+}

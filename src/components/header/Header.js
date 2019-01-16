@@ -1,5 +1,5 @@
 import Nav from '../nav';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { logout } from 'services';
 import './header.scss';
 
@@ -15,23 +15,24 @@ const Header = ({ user, info, onLogout, history }) => {
 
   return (
     <header className="header">
-      <a href="/" className="header__logo">
-        <img src="images/images.png" alt=""/>
-      </a>
-      <Nav list={['Home', 'Products', 'Contacts']}/>
+      <Link to="/" className="header__logo">
+        <img src="images/images.png" alt="" />
+      </Link>
+      <Nav list={['Home', 'Products']} />
       <div className="user-box">
         {
           user
-            ? <span>
-              {user.firstName}
-              {info && `(${info.categories}/${info.products})`}
-              <a href="#" onClick={onLogoutHandler}>Logout</a>
-            </span>
+            ? <>
+                {user.firstName}
+                {info && `(${info.categories}/${info.products})`}
+                <a href="#" className="user-box__logout" onClick={onLogoutHandler}>Logout</a>
+              </>
             : (
-              <span>
-              <NavLink to="/login" activeClassName="active">Sing in</NavLink> /
-              <NavLink to="/user" activeClassName="active">Sing up</NavLink>
-            </span>
+              <>
+                <NavLink to="/login" activeClassName="active">Sing in</NavLink>
+                <span className="user-box__space">/</span>
+                <NavLink to="/user" activeClassName="active">Sing up</NavLink>
+              </>
             )
         }
       </div>
