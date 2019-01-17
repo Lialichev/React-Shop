@@ -17,19 +17,20 @@ class Product extends Component {
 
   render() {
     const { data } = this.state;
+    console.log(data);
 
     return (
-      <div className="products">
-        <div className="products__title">
+      <div className="product">
+        <div className="product__title">
           Title:
           {data && <RenameText>{data.title}</RenameText>}
         </div>
-        <div className="products__price">
+        <div className="product__price">
           $
           {data && <RenameText>{data.price}</RenameText>}
         </div>
-        <div className="products__description">
-          {data && <RenameText textarea>{data.title}</RenameText>}
+        <div className="product__description">
+          {data && <RenameText textarea>{data.description}</RenameText>}
         </div>
         <button type="submit">Send</button>
       </div>
