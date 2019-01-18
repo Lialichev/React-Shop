@@ -3,6 +3,7 @@ import Login from './login';
 import CreateUser from './createUser';
 import UserInfo from './userInfo';
 import Product from './product';
+import Products from './products';
 
 export const Pages = ({ user, onLogin, info }) => (
   <Switch>
@@ -37,11 +38,16 @@ export const Pages = ({ user, onLogin, info }) => (
             render={() => <UserInfo user={user} info={info} />}
             key="userInfo"
           />,
+          <Route
+            path="/products"
+            component={Products}
+            key="productsPage"
+          />,
           <Redirect from="/login" to="/" key="loginTo" />
         ]
     }
     <Route
-      render={({location}) => <h1>Code: 404! Page not found <em>{location.pathname}</em></h1>}
+      render={({ location }) => <h1>Code: 404! Page not found <em>{location.pathname}</em></h1>}
     />
   </Switch>
 );

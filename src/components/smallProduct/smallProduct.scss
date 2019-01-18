@@ -1,0 +1,45 @@
+@import "../../variables";
+
+.smallProduct {
+  display: inline-block;
+  width: 100px;
+  position: relative;
+  margin: 20px;
+
+  &__photo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+  }
+
+  &__controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    border: 1px solid #000;
+
+    a {
+      background-color: #eeeeee;
+      padding: 5px;
+      text-decoration: none;
+      color: #000;
+      transition: .2s ease-out;
+
+      &:hover {
+        color: #659cff;
+      }
+
+      & + a {
+        border-left: 1px solid #000;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
