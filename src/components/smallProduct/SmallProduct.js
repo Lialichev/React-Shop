@@ -1,4 +1,5 @@
 import RenameText from 'components/renameText';
+import { Link } from 'react-router-dom';
 
 import './smallProduct.scss';
 
@@ -8,9 +9,9 @@ const SmallProduct = ({ product }) => (
       <a href="#">edit</a>
       <a href='#'>x</a>
     </div>
-    <div className="smallProduct__photo">
+    <Link to={`products/${product.id}`} className="smallProduct__photo">
       <span>photo</span>
-    </div>
+    </Link>
     <div className="smallProduct__title">
       <RenameText>{product.title}</RenameText>
     </div>

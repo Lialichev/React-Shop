@@ -16,7 +16,7 @@ const Header = ({ user, info, onLogout, history }) => {
   return (
     <header className="header">
       <Link to="/" className="header__logo">
-        <img src="images/images.png" alt="" />
+        <img src="/images/images.png" alt="" />
       </Link>
       <Nav list={['Home', 'Products']} />
       <div className="user-box">
