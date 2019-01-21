@@ -21,8 +21,8 @@ class Form extends Component {
 
     this.fields = [
       {label: 'email', reg: /^\w+@\w+\.[a-z]{2,}$/, place: 'Enter your email'},
-      {label: 'firstname', reg: /^[^ ]{3,20}$/, place: 'Enter your name'},
-      {label: 'lastname', reg: /^[^ ]{3,20}$/, place: 'Enter your surname'},
+      {label: 'firstName', reg: /^[^ ]{3,20}$/, place: 'Enter your name'},
+      {label: 'lastName', reg: /^[^ ]{3,20}$/, place: 'Enter your surname'},
       {label: 'password', reg: /^[^ ]{6,20}$/, secure: true, place: 'Enter your password'},
       {label: 'repeatPassword', reg: /^[^ ]{6,20}$/, secure: true, place: 'Enter your repeat password'},
     ];

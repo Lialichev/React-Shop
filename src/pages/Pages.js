@@ -29,6 +29,11 @@ export const Pages = ({ user, onLogin, info }) => (
             path="/user"
             component={CreateUser}
             key="createUser"
+          />,
+          <Route
+            path="/success"
+            render={() => <h1>Success registration</h1>}
+            key="success"
           />
         ] :
         [
