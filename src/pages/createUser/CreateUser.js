@@ -1,15 +1,14 @@
+import { Redirect, Link } from 'react-router-dom';
 import Form from '../../components/form';
-import { Redirect } from 'react-router-dom';
 
 class CreateUser extends Component {
   state = {
     redirect: false
   };
 
-  onClick = () => {
-    // this.setState({  redirect: true });
-    this.props.history.push('/login');
-  };
+  onSave(data) {
+    console.log(data);
+  }
 
   render() {
     const { redirect } = this.state;
@@ -17,8 +16,9 @@ class CreateUser extends Component {
     return (
       <>
         <h1>Create User</h1>
-        <Form/>
-        <button onClick={this.onClick}>Войти</button>
+        <Form onSave={this.onSave} />
+        <br />
+        <Link to="/login">Войти</Link>
         {redirect && <Redirect to="/login" />}
       </>
     );

@@ -4,7 +4,7 @@ import {
   all
 } from 'redux-saga/effects';
 
-import { checkUser } from 'services'
+import { checkUser } from 'services';
 
 import {
   CHECK_USER,

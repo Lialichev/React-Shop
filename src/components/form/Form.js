@@ -21,27 +21,27 @@ class Form extends Component {
 
     this.fields = [
       {label: 'email', reg: /^\w+@\w+\.[a-z]{2,}$/, place: 'Enter your email'},
-      {label: 'name', reg: /^[^ ]{3,20}$/, place: 'Enter your name'},
-      {label: 'surname', reg: /^[^ ]{3,20}$/, place: 'Enter your surname'},
+      {label: 'firstname', reg: /^[^ ]{3,20}$/, place: 'Enter your name'},
+      {label: 'lastname', reg: /^[^ ]{3,20}$/, place: 'Enter your surname'},
       {label: 'password', reg: /^[^ ]{6,20}$/, secure: true, place: 'Enter your password'},
       {label: 'repeatPassword', reg: /^[^ ]{6,20}$/, secure: true, place: 'Enter your repeat password'},
     ];
 
     this.state = {};
 
-    this.fields.forEach(({label}) => this.state[label] = ({
+    this.fields.forEach(({ label }) => this.state[label] = ({
       value: '',
       error: ''
     }));
   }
 
-  onChange = ({target}) => {
+  onChange = ({ target }) => {
     const field = this.state[target.name];
 
     if (/checkbox|radio/i.test(target.type)) {
-      this.setState({[target.name]: {...field, value: target.checked}});
+      this.setState({ [target.name]: { ...field, value: target.checked } });
     } else {
-      this.setState({[target.name]: {...field, value: target.value}});
+      this.setState({ [target.name]: { ...field, value: target.value } });
     }
   };
 
@@ -57,10 +57,10 @@ class Form extends Component {
 
   isButtonDisabled() {
     return Object.entries(this.state)
-      .some(([key, {error, value}]) => error || !value);
+      .some(([key, { error, value }]) => error || !value);
   }
 
-  validate = ({target}) => {
+  validate = ({ target }) => {
     const field = this.fields.find(item => item.label === target.name);
     const stateField = this.state[target.name];
     let error = '';
@@ -72,21 +72,22 @@ class Form extends Component {
     }
 
     if (target.name === 'repeatPassword' && this.state.password.value !== target.value) {
-      error = 'Passwords are not equled'
+      error = 'Passwords are not equled';
     }
 
-    this.setState({[target.name]: {...stateField, error}});
+    this.setState({ [target.name]: { ...stateField, error } });
   };
 
   render() {
-    const {state} = this;
+    const { state } = this;
 
     return (
       <form onSubmit={this.onSubmit}>
         <ul>
           {
-            this.fields.map(((field, index) =>
-                <li key={index}>
+            this.fields.map((field, index) => (
+              <div className="input-group" key={index}>
+                <li>
                   <input
                     type={field.secure ? 'password' : 'text'}
                     name={field.label}
@@ -96,18 +97,24 @@ class Form extends Component {
                     onBlur={this.validate}
                   />
                   {
-                    state[field.label].error &&
-                    <mark style={{color: 'red'}}>{state[field.label].error}</mark>
+                    state[field.label].error && (
+                      <mark style={{ color: 'red' }}>
+                        {state[field.label].error}
+                      </mark>
+                    )
                   }
                 </li>
+              </div>
             ))
           }
         </ul>
-        <input
-          type="submit"
-          value="Отправить"
-          disabled={this.isButtonDisabled()}
-        />
+        <div className="input-group">
+          <input
+            type="submit"
+            value="Отправить"
+            disabled={this.isButtonDisabled()}
+          />
+        </div>
       </form>
     );
   }
