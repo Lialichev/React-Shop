@@ -22,7 +22,6 @@ const Login = ({ onLogin }) => {
           placeholder="Enter email"
           required
           name="email"
-          defaultValue="admin@a.com"
         />
       </div>
       <div className="input-group">
@@ -31,7 +30,6 @@ const Login = ({ onLogin }) => {
           placeholder="Enter password"
           required
           name="password"
-          defaultValue="admin"
         />
       </div>
       <div className="input-group">
