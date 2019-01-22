@@ -5,7 +5,7 @@ import UserInfo from './userInfo';
 import Product from './product';
 import Products from './products';
 
-export const Pages = ({ user, onLogin, info }) => (
+export const Pages = ({ user, info }) => (
   <Switch>
     <Route
       path="/products/:id"
@@ -22,7 +22,7 @@ export const Pages = ({ user, onLogin, info }) => (
           />,
           <Route
             path="/login"
-            render={() => <Login onLogin={onLogin} />}
+            component={Login}
             key="login"
           />,
           <Route
@@ -41,6 +41,7 @@ export const Pages = ({ user, onLogin, info }) => (
             path={["/", "/home"]}
             exact
             render={() => <UserInfo user={user} info={info} />}
+            // home переделать на connect
             key="userInfo"
           />,
           <Route

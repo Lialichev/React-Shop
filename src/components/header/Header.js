@@ -3,14 +3,11 @@ import { NavLink, Link } from 'react-router-dom';
 import { logout } from 'services';
 import './header.scss';
 
-const Header = ({ user, info, onLogout, history }) => {
+const Header = ({ user, info, onLogout }) => {
   const onLogoutHandler = (e) => {
     e.preventDefault();
 
-    logout().then(() => {
-      onLogout();
-      history.push('/');
-    });
+    onLogout();
   };
 
   return (
