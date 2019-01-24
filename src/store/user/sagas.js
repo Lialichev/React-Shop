@@ -34,12 +34,10 @@ function* logoutSaga() {
   yield put(setUser(null));
 }
 
-function* watchUser() {
+export function* watchUser() {
   yield all([
     takeEvery(CHECK_USER, check),
     takeEvery(LOGIN_USER, loginSaga),
     takeEvery(LOGOUT_USER, logoutSaga)
   ]);
 }
-
-export default watchUser;

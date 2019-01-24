@@ -21,7 +21,8 @@ module.exports = {
   resolve: {
     alias: {
       services: path.resolve(__dirname, '../src/services'),
-      components: path.resolve(__dirname, '../src/components')
+      components: path.resolve(__dirname, '../src/components'),
+      store: path.resolve(__dirname, '../src/store'),
     }
   },
 

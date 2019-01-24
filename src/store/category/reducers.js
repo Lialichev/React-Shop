@@ -1,26 +1,34 @@
-import { SET_INFO, CLEAN_INFO } from './actions';
 import {
-  category as categoryInit,
-  info as infoInit
+  SET_INFO,
+  CLEAN_INFO,
+  CLEAR_CATEGORY,
+  SET_CATEGORY,
+} from './actions';
+import {
+  category as categoryInitial,
+  info as infoInitial
 } from '../initialState';
 
-export const category = (state = categoryInit, action) => {
+export const info = (state = infoInitial, action) => {
   switch (action.type) {
-    case 'default': {
+    case SET_INFO: {
       return action.data;
+    }
+    case CLEAN_INFO: {
+      return infoInitial;
     }
   }
 
   return state;
 };
 
-export const info = (state = infoInit, action) => {
+export const category = (state = categoryInitial, action) => {
   switch (action.type) {
-    case SET_INFO: {
+    case SET_CATEGORY: {
       return action.data;
     }
-    case CLEAN_INFO: {
-      return infoInit;
+    case CLEAR_CATEGORY: {
+      return categoryInitial;
     }
   }
 

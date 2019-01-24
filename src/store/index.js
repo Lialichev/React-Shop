@@ -9,11 +9,15 @@ import { rootSaga } from './rootSaga';
 
 import { user } from './user';
 import { info, category } from './category';
+import { categories } from './categories';
+import { products } from './products';
 
 const rootReducers = combineReducers({
   user,
   info,
-  category
+  category,
+  categories,
+  products
 });
 
 // eslint-disable-next-line
