@@ -1,6 +1,7 @@
-import { getProductsAll } from 'services';
-import SmallProduct from 'components/smallProduct';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getProducts } from 'store/products';
+import SmallProduct from 'components/smallProduct';
 
 import './products.scss';
 
@@ -12,22 +13,17 @@ class Products extends Component {
       searchValue: '',
       productsSearch: []
     };
-
-    this.products = [];
   }
 
   componentDidMount() {
-    getProductsAll()
-      .then((data) => {
-        this.setState({ productsSearch: data });
-        this.products = data;
-      });
+    this.props.dispatch(getProducts());
   }
 
   onSearch({ target }) {
     const value = target.value.toLowerCase();
+    const { products } = this.state;
 
-    const searchProducts = this.products.filter(({ title }) => title.toLowerCase().includes(value));
+    const searchProducts = products.filter(({ title }) => title.toLowerCase().includes(value));
 
     this.setState({
       searchValue: target.value,
@@ -64,4 +60,8 @@ class Products extends Component {
   }
 }
 
-export default Products;
+const mapState = state => ({
+  productsSearch: state.products
+});
+
+export default connect(mapState)(Products);
