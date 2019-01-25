@@ -1,6 +1,7 @@
-import { getProductsAll } from 'services';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getProducts} from 'store/products';
 import SmallProduct from 'components/smallProduct';
-import { Link } from 'react-router-dom';
 
 import './products.scss';
 
@@ -12,22 +13,23 @@ class Products extends Component {
       searchValue: '',
       productsSearch: []
     };
-
-    this.products = [];
   }
 
   componentDidMount() {
-    getProductsAll()
-      .then((data) => {
-        this.setState({ productsSearch: data });
-        this.products = data;
-      });
+    this.props.dispatch(getProducts());
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.products !== this.props.products) {
+      this.setState({ productsSearch: this.props.products })
+    }
   }
 
   onSearch({ target }) {
     const value = target.value.toLowerCase();
+    const { products } = this.props;
 
-    const searchProducts = this.products.filter(({ title }) => title.toLowerCase().includes(value));
+    const searchProducts = products.filter(({title}) => title.toLowerCase().includes(value));
 
     this.setState({
       searchValue: target.value,
@@ -52,7 +54,7 @@ class Products extends Component {
         <div className="products__wrap">
           {
             productsSearch.length !== 0
-              ? productsSearch.map(data => <SmallProduct key={data.id} product={data} />)
+              ? productsSearch.map(data => <SmallProduct key={data.id} product={data}/>)
               : <p>Products not found :(</p>
           }
         </div>
@@ -64,4 +66,8 @@ class Products extends Component {
   }
 }
 
-export default Products;
+const mapState = state => ({
+  products: state.products
+});
+
+export default connect(mapState)(Products);
