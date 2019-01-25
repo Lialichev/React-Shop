@@ -11,13 +11,15 @@ import { user } from './user';
 import { info, category } from './category';
 import { categories } from './categories';
 import { products } from './products';
+import { error } from './status';
 
 const rootReducers = combineReducers({
   user,
   info,
   category,
   categories,
-  products
+  products,
+  error
 });
 
 // eslint-disable-next-line

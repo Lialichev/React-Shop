@@ -1,7 +1,10 @@
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastr'
+
 import { check, logout } from './store/user'
 import { getInfo, cleanInfo } from './store/category'
+import { cleanError } from './store/status'
 
 import Header from 'components/header';
 import Main from 'components/main';
@@ -22,6 +25,14 @@ class AppComponent extends Component {
       this.props.history.push('/');
       this.props.dispatch(cleanInfo());
     }
+
+    if (!prevProps.error && this.props.error) {
+      this.container.error(
+        this.props.error,
+        'Error!'
+      );
+      this.props.dispatch(cleanError());
+    }
   }
 
   onLogout = () => {
@@ -41,6 +52,10 @@ class AppComponent extends Component {
         <Main>
           <Pages user={user} info={info} />
         </Main>
+        <ToastContainer
+          ref={ref => this.container = ref}
+          className="toast-top-right"
+        />
         <Footer />
       </>
     );
@@ -49,7 +64,8 @@ class AppComponent extends Component {
 
 const mapState = state => ({
   user: state.user,
-  info: state.info
+  info: state.info,
+  error: state.error
 });
 
 export default withRouter(connect(mapState)(AppComponent));

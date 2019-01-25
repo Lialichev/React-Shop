@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {getProducts} from 'store/products';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getProducts } from 'store/products';
 import SmallProduct from 'components/smallProduct';
 
 import './products.scss';

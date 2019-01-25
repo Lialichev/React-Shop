@@ -4,6 +4,7 @@ import CreateUser from './createUser';
 import UserInfo from './userInfo';
 import Product from './product';
 import Products from './products';
+import Categories from './categories';
 
 export const Pages = ({ user, info }) => (
   <Switch>
@@ -48,6 +49,11 @@ export const Pages = ({ user, info }) => (
             path="/products"
             component={Products}
             key="productsPage"
+          />,
+          <Route
+            path="/categories"
+            component={Categories}
+            key="categories"
           />,
           <Redirect from="/login" to="/" key="loginTo" />
         ]
