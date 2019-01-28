@@ -1,17 +1,19 @@
 import {
   takeEvery,
   put,
-  all
+  all,
 } from 'redux-saga/effects';
 
-import { getCategories as getList } from 'services';
-
-import { updateCategory } from 'store/category';
+import {
+  updateCategory as updateCategoryService,
+  getCategories as getList,
+} from 'services';
 
 import {
   UPDATE_CATEGORIES,
   GET_CATEGORIES,
   setCatigories,
+  getCategories,
 } from './actions';
 
 function* fetchCategories() {
@@ -20,9 +22,8 @@ function* fetchCategories() {
 }
 
 function* putCategory({ data }) {
-  const category = yield updateCategory(data);
-  yield put(updateCategory(category));
-  yield put(getList());
+  yield updateCategoryService(data);
+  yield put(getCategories());
 }
 
 export function* watchCategories() {

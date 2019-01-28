@@ -1,17 +1,35 @@
 import { connect } from 'react-redux';
-import ControlCategory from 'components/controlCategory';
-import { getCategories } from 'store/categories'
+import ControlItems from 'components/controlItems';
+import { getCategories, updateCategories } from 'store/categories';
+
+const isPublished = category => category.published;
+const notPublished = category => !category.published;
 
 class Categories extends Component {
-
   componentDidMount() {
     this.props.dispatch(getCategories());
   }
 
+  updateCategories = (title, id) => {
+    const category = this.props.categories.find(category => category.id === id);
+    category.title = title;
+
+    this.props.dispatch(updateCategories(category));
+  };
+
   render() {
     const { categories } = this.props;
 
-    return <ControlCategory leftItems={categories}/>
+    return (
+      <section>
+        <h1>Categories</h1>
+        <ControlItems
+          leftItems={categories.filter(isPublished)}
+          rightItems={categories.filter(notPublished)}
+          onChangeLeftItem={this.updateCategories}
+        />
+      </section>
+    );
   }
 }
 

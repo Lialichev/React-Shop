@@ -1,6 +1,11 @@
+import store from 'store';
+import { setError } from 'store/status';
+
 const BASE_URL = 'http://localhost:8086/';
 
 const request = (url, options = {}, data) => {
+  const isUserChecking = url.includes('checkUser');
+
   const settings = {
     credentials: 'include',
     ...options,
@@ -13,7 +18,7 @@ const request = (url, options = {}, data) => {
     };
   }
 
-  return fetch(`${BASE_URL}${url}`, settings)
+  const req = fetch(`${BASE_URL}${url}`, settings)
     .then(res => res.json())
     .then((data) => {
       if (data.error) {
@@ -22,6 +27,10 @@ const request = (url, options = {}, data) => {
 
       return data;
     });
+
+  req.catch(error => !isUserChecking && store.dispatch(setError(String(error))));
+
+  return req;
 };
 
 const rest = {
@@ -30,9 +39,12 @@ const rest = {
   },
 
   post(url, data) {
-    return request(url, { method: 'POST' }, data);
+    return request(url, {method: 'POST'}, data);
+  },
+
+  put(url, data) {
+    return request(url, {method: 'PUT'}, data);
   }
 };
 
-
-export { rest, request };
+export {rest, request};
