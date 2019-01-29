@@ -17,6 +17,20 @@ class Categories extends Component {
     this.props.dispatch(updateCategories(category));
   };
 
+  unPublishCategory = (id) => {
+    const category = this.props.categories.find(category => category.id === id);
+    category.published = false;
+
+    this.props.dispatch(updateCategories(category));
+  };
+
+  publishCategory = (id) => {
+    const category = this.props.categories.find(category => category.id === id);
+    category.published = true;
+
+    this.props.dispatch(updateCategories(category));
+  };
+
   render() {
     const { categories } = this.props;
 
@@ -27,6 +41,8 @@ class Categories extends Component {
           leftItems={categories.filter(isPublished)}
           rightItems={categories.filter(notPublished)}
           onChangeLeftItem={this.updateCategories}
+          removeItem={this.unPublishCategory}
+          addItem={this.publishCategory}
         />
       </section>
     );

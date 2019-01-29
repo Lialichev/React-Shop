@@ -1,15 +1,15 @@
-import { withRouter } from "react-router-dom";
-import { connect } from 'react-redux';
-import { ToastContainer } from 'react-toastr'
+import {withRouter} from "react-router-dom";
+import {connect} from 'react-redux';
+import {ToastContainer} from 'react-toastr'
 
-import { check, logout } from './store/user'
-import { getInfo, cleanInfo } from './store/category'
-import { cleanError } from './store/status'
+import {check, logout} from './store/user'
+import {getInfo, cleanInfo} from './store/category'
+import {cleanError} from './store/status'
 
 import Header from 'components/header';
 import Main from 'components/main';
 import Footer from 'components/footer';
-import { Pages } from './pages/Pages';
+import {Pages} from './pages/Pages';
 
 class AppComponent extends Component {
   componentDidMount() {
@@ -40,7 +40,7 @@ class AppComponent extends Component {
   };
 
   render() {
-    const { user, info } = this.props;
+    const {user, info} = this.props;
 
     return (
       <>
@@ -50,13 +50,13 @@ class AppComponent extends Component {
           onLogout={this.onLogout}
         />
         <Main>
-          <Pages user={user} info={info} />
+          <Pages user={user} info={info}/>
         </Main>
         <ToastContainer
           ref={ref => this.container = ref}
           className="toast-top-right"
         />
-        <Footer />
+        <Footer/>
       </>
     );
   }

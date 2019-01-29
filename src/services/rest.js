@@ -1,4 +1,4 @@
-import store from 'store';
+import { store } from 'store';
 import { setError } from 'store/status';
 
 const BASE_URL = 'http://localhost:8086/';

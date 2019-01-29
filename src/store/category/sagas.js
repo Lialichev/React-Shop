@@ -33,8 +33,10 @@ function* fetchCategory({ data }) {
 }
 
 function* putCategory({ data }) {
-  const category = yield updateCategory(data);
-  yield put(setCategory(category));
+  try {
+    const category = yield updateCategory(data);
+    yield put(setCategory(category));
+  } catch (e) {}
 }
 
 function* newCategory({ data }) {

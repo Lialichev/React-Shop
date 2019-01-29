@@ -19,14 +19,16 @@ function* check() {
   try {
     user = yield checkUser();
     yield put(setUser(user));
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }
 
 function* loginSaga({ data }) {
-  const user = yield login(data);
-  yield put(setUser(user));
+  let user;
+
+  try {
+    user = yield login(data);
+    yield put(setUser(user));
+  } catch (err) {}
 }
 
 function* logoutSaga() {

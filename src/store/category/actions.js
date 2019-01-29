@@ -10,7 +10,7 @@ export const cleanInfo = () => ({ type: CLEAN_INFO });
 export const UPDATE_CATEGORY = 'Request to update category';
 export const updateCategory = data => ({ type: UPDATE_CATEGORY, data });
 
-export const SET_CATEGORY = 'Update category';
+export const SET_CATEGORY = 'Set one category';
 export const setCategory = data => ({ type: SET_CATEGORY, data });
 
 export const DELETE_CATEGORY = 'Delete category';

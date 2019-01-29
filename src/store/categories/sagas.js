@@ -21,9 +21,12 @@ function* fetchCategories() {
   yield put(setCatigories(categories));
 }
 
-function* putCategory({ data }) {
-  yield updateCategoryService(data);
-  yield put(getCategories());
+function* putCategory({data}) {
+  try {
+    yield updateCategoryService(data);
+    yield put(getCategories());
+  } catch (e) {
+  }
 }
 
 export function* watchCategories() {
