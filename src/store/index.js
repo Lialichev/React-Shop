@@ -11,6 +11,7 @@ import { user } from './user';
 import { info, category } from './category';
 import { categories } from './categories';
 import { products } from './products';
+import { product } from './product';
 import { error } from './status';
 
 const rootReducers = combineReducers({
@@ -19,6 +20,7 @@ const rootReducers = combineReducers({
   category,
   categories,
   products,
+  product,
   error
 });
 

@@ -1,35 +1,32 @@
+import { connect } from 'react-redux';
+import { getProduct } from "store/product";
 import RenameText from 'components/renameText';
 import { getProducts } from 'services';
 
 import './product.scss';
 
 class Product extends Component {
-  state={
-    data: null
-  };
-
   componentDidMount() {
     const { match } = this.props;
 
-    getProducts(match.params.id)
-      .then(data => this.setState({ data }));
+    this.props.dispatch(getProduct(match.params.id));
   }
 
   render() {
-    const { data } = this.state;
+    const { product } = this.props;
 
     return (
       <div className="product">
         <div className="product__title">
           Title:
-          {data && <RenameText>{data.title}</RenameText>}
+          {product && <RenameText>{product.title}</RenameText>}
         </div>
         <div className="product__price">
           $
-          {data && <RenameText>{data.price}</RenameText>}
+          {product && <RenameText>{product.price}</RenameText>}
         </div>
         <div className="product__description">
-          {data && <RenameText textarea>{data.description}</RenameText>}
+          {product && <RenameText textarea>{product.description}</RenameText>}
         </div>
         <button type="submit">Send</button>
       </div>
@@ -37,4 +34,8 @@ class Product extends Component {
   }
 }
 
-export default Product;
+const mapState = state => ({
+  product: state.product
+});
+
+export default connect(mapState)(Product);

@@ -12,6 +12,12 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   &__controls {
