@@ -11,7 +11,7 @@ import Main from 'components/main';
 import Footer from 'components/footer';
 import {Pages} from './pages/Pages';
 
-class AppComponent extends Component {
+export class AppComponent extends Component {
   componentDidMount() {
     this.props.dispatch(check());
   }
