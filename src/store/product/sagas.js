@@ -11,7 +11,7 @@ import {
   setProduct
 } from './actions';
 
-function* fetchProduct({ data }) {
+export function* fetchProduct({ data }) {
   try {
     const product = yield getProducts(data);
     yield put(setProduct(product));
