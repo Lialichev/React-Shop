@@ -14,19 +14,15 @@ import {
 } from './actions';
 
 function* check() {
-  let user;
-
   try {
-    user = yield checkUser();
+    const user = yield checkUser();
     yield put(setUser(user));
   } catch (err) {}
 }
 
-function* loginSaga({ data }) {
-  let user;
-
+function* loginSaga({data}) {
   try {
-    user = yield login(data);
+    const user = yield login(data);
     yield put(setUser(user));
   } catch (err) {}
 }
@@ -40,6 +36,6 @@ export function* watchUser() {
   yield all([
     takeEvery(CHECK_USER, check),
     takeEvery(LOGIN_USER, loginSaga),
-    takeEvery(LOGOUT_USER, logoutSaga)
+    takeEvery(LOGOUT_USER, logoutSaga),
   ]);
 }

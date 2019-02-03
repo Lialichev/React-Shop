@@ -1,4 +1,4 @@
-import { login } from "../../store/user";
+import { login } from "store/user";
 import { connect } from 'react-redux';
 
 const Login = ({ dispatch }) => {

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { getProduct } from "store/product";
 import RenameText from 'components/renameText';
-import { getProducts } from 'services';
 
 import './product.scss';
 
