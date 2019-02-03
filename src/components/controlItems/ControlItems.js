@@ -6,28 +6,28 @@ class ControlItems extends Component {
   state = {
     itemId: '',
     editId: ''
-  }
+  };
 
   onEdit = (editId) => {
     this.setState({editId});
-  }
+  };
 
   onInputOut = (title, id) => {
     this.props.onChangeLeftItem(title, id);
     this.setState({ isEdit: '' });
-  }
+  };
 
   onDelete = (itemId) => {
     this.setState({itemId});
-  }
+  };
 
   onClose = () => {
     this.setState({itemId: ''});
-  }
+  };
 
   onOk = () => {
     this.props.removeItem(this.state.itemId);
-  }
+  };
 
   render() {
     const {
