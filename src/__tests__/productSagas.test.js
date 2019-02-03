@@ -1,5 +1,5 @@
-import { fetchProduct } from 'store/product';
-import { runSaga } from "redux-saga";
+import {fetchProduct} from 'store/product';
+import {runSaga} from "redux-saga";
 
 const MockProduct = {name: 'Toy'};
 jest.mock('../services', () => ({
@@ -10,10 +10,14 @@ jest.mock('../services', () => ({
 describe('productSagas', () => {
   it('should send product to store', () => {
     let action;
+    const argument = { data: 'test' };
 
     runSaga({
       dispatch: data => action = data
-    }, fetchProduct);
+    },
+      fetchProduct,
+      argument
+    );
 
     expect(action.data).toEqual(MockProduct);
   });
