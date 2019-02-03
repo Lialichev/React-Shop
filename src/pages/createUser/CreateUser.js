@@ -1,21 +1,24 @@
 import { Redirect, Link } from 'react-router-dom';
 import Form from 'components/form';
-import { createUser } from "services";
+import { createNewUser, cleanNewUser } from "store/createUser";
+import { connect } from 'react-redux';
 
 class CreateUser extends Component {
   state = {
-    redirect: false,
     error: false
   };
 
   onSave = ({ firstName, lastName, email, password }) => {
-    createUser({ firstName, lastName, email, password })
-      .then(() => this.setState({ redirect: true }))
-      .catch(() => this.setState({ error: true }));
+    this.props.dispatch(createNewUser({ firstName, lastName, email, password }));
   };
 
+  componentWillUnmount() {
+    this.props.dispatch(cleanNewUser());
+  }
+
   render() {
-    const { redirect, error } = this.state;
+    const { error } = this.state;
+    const { createUser } = this.props;
 
     return (
       <>
@@ -24,10 +27,14 @@ class CreateUser extends Component {
         <br />
         {error && <div><mark>Ошибка регистрации!</mark></div>}
         <Link to="/login">Войти</Link>
-        {redirect && <Redirect to="/success" />}
+        {createUser && <Redirect to="/success" />}
       </>
     );
   }
 }
 
-export default CreateUser;
+const mapState = state => ({
+  createUser: state.createUser,
+});
+
+export default connect(mapState)(CreateUser);

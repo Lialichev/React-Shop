@@ -1,4 +1,5 @@
 export const user = null;
+export const createUser = null;
 export const info = null;
 export const category = null;
 export const categories = [];

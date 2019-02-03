@@ -10,7 +10,7 @@ import {
   updateCategory,
   createCategory,
   deleteCategory,
-} from '../../services';
+} from 'services';
 
 import {
   GET_CATEGORY,
